@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Team CLicker</title>
+        <style>
+            body {
+                background: coral;
+            }
+            .header {
+                text-align: center;
+            }
+            #team-img {
+                margin-top: 10px;
+                border-radius: 5px;
+                width: 200px;
+                height: 200px;
+            }
+            #team-img:hover {
+                cursor: pointer;
+            }
+            #image:hover {
+                cursor: pointer;
+            }
+            #team-list li {
+                list-style-type: none;
+                border: 1px solid #ddd;
+                padding: 5px;
+                width: 200px;
+            }
+            #team-list li:hover {
+                cursor: pointer;
+            }
+            #update-section {
+                display: none;
+            }
+            #admin-btn {
+                display: none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1 class="header">Football Teams Clicker</h1>
+        <ul id="team-list"></ul>
+
+        <div id="team">
+            <h2 id="team-name"></h2>
+            <div id="team-count"></div>
+            <img id="team-img" alt="Team Image">
+        </div>
+
+        <div id="admin-section">
+            <button id="admin-btn">Admin</button><br><br>
+
+            <div id="update-section">
+                <span>Name: </span> <input type="text" id="update-name"><br><br>
+                <span>Clicks: </span> <input type="number" id="update-clicks"><br>
+                <button id="update-cancel-btn">Cancel</button>
+                <button id="update-save-btn">Save</button>
+            </div>
+        </div>
+        <script src="footballTeams.js"></script>
+    </body>
+</html>
