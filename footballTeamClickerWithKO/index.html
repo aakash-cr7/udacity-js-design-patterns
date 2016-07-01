@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Team CLicker</title>
+        <style>
+            body {
+                background: coral;
+            }
+            .header {
+                text-align: center;
+            }
+            #team-img {
+                margin-top: 10px;
+                border-radius: 5px;
+                width: 200px;
+                height: 200px;
+            }
+            #team-img:hover {
+                cursor: pointer;
+            }
+            #image:hover {
+                cursor: pointer;
+            }
+            #team-list li {
+                list-style-type: none;
+                border: 1px solid #ddd;
+                padding: 5px;
+                width: 200px;
+            }
+            #team-list li:hover {
+                cursor: pointer;
+            }
+            #update-section {
+                display: none;
+            }
+            #admin-btn {
+                display: none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1 class="header">Football Teams Clicker</h1>
+        <ul id="team-list"></ul>
+
+        <div id="team" data-bind="with: currentTeam">
+            <span data-bind="text: level"></span>
+            <!-- as now we can no longer use props directly like earlier as the the team object is in observable -->
+            <h2 id="team-name" data-bind="text: teamName"></h2>
+            <div id="team-count" data-bind="text: clickCount"></div>
+            <!-- Run incrementCounter on the ViewModel and not currentTeam -->
+            <img id="team-img" alt="Team Image" data-bind="click: $parent.incrementCounter, attr: {src: imgSrc} ">
+
+
+            <div class="nicknames">
+                <ul data-bind="foreach: nicknames">
+                    <!-- Use name of the property if using objects inside the array else use $data -->
+                    <li data-bind="text: $data"></li>
+                </ul>
+            </div>
+        </div>
+        <script src="knockout.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
