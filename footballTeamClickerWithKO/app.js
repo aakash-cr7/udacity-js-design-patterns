@@ -34,7 +34,7 @@ var initialTeams = [
 
 var Team = function(data) {
     this.clickCount = ko.observable(data.clickCount); // clicks count of the image
-    this.teamName = ko.observable(data.teamName);
+    this.teamName = ko.observable(data.name);
     this.imgSrc = ko.observable(data.imgSrc);
 
     this.nicknames = ko.observableArray(data.nicknames);
@@ -62,7 +62,6 @@ var ViewModel = function() {
         // Similar to self.teamList.push( new Team({name: "Arsenal", .......}) );
         self.teamList.push( new Team(teamItem) );
     });
-
     this.currentTeam = ko.observable( this.teamList()[0] );
 
     // As using with in views, while calling this in views we are in the binding 
@@ -73,6 +72,11 @@ var ViewModel = function() {
     //  Neither of the 2 approaches is right or wrong, solves same problem.
     this.incrementCounter = function() {
         this.clickCount(this.clickCount() + 1);
+    }
+
+    // The object gets passed in on which we clicked
+    this.setTeam = function(clickedTeam) {
+        self.currentTeam(clickedTeam);
     }
 }
 
