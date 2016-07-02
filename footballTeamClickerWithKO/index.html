@@ -40,8 +40,11 @@
         </style>
     </head>
     <body>
-        <h1 class="header">Football Teams Clicker</h1>
-        <ul id="team-list"></ul>
+       <h1 class="header">Football Teams Clicker</h1>
+        <ul id="team-list" data-bind="foreach: teamList">
+             <!--Get up out of a binding context. Just using setTeam will be in the context of Team, ww need to go up one context to access ViewModel context -->
+            <li data-bind="text: teamName, click: $parent.setTeam"></li>
+        </ul>
 
         <div id="team" data-bind="with: currentTeam">
             <span data-bind="text: level"></span>
